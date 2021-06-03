@@ -19,5 +19,6 @@ public class TestRunner {
         driver.get("https://mail.ru/");
 
         loginPage.inputUserName(userName).enterPasswordButton().inputPassword(userPassword).clickLoginButton();
+        mainPage.clickToComposeLetter();
     }
 }
