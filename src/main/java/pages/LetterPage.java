@@ -12,6 +12,7 @@ public class LetterPage {
     String subjectXpath = "//input[@tabindex=\"400\"]";
     String bodyXpath = "//div[@tabindex=\"505\"]";
     String saveButtonXpath = "//span[@tabindex=\"580\"]";
+    String closeButtonXpath = "//button[@tabindex=\"700\"]";
 
     public LetterPage(WebDriver driver) {
         this.driver = driver;
@@ -35,6 +36,11 @@ public class LetterPage {
 
     public LetterPage saveToDrafts() {
         driver.findElement(By.xpath(saveButtonXpath)).click();
+        return this;
+    }
+
+    public LetterPage closeLetterPage() {
+        driver.findElement(By.xpath(closeButtonXpath)).click();
         return this;
     }
 }
