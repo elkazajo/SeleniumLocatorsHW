@@ -3,7 +3,10 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import utils.Waiters;
+
+import java.util.concurrent.TimeUnit;
 
 public class LetterPage {
     WebDriver driver;
@@ -13,6 +16,7 @@ public class LetterPage {
     String bodyXpath = "//div[@tabindex=\"505\"]";
     String saveButtonXpath = "//span[@tabindex=\"580\"]";
     String closeButtonXpath = "//button[@tabindex=\"700\"]";
+    String lastSavedXpath = "//span[@title=\"selenium.tester@mail.ru\"][1]";
 
     public LetterPage(WebDriver driver) {
         this.driver = driver;
@@ -42,5 +46,10 @@ public class LetterPage {
     public LetterPage closeLetterPage() {
         driver.findElement(By.xpath(closeButtonXpath)).click();
         return this;
+    }
+
+    public boolean isStillOpen() {
+        WebElement closeButton = driver.findElement(By.xpath(closeButtonXpath));
+        return closeButton.isDisplayed();
     }
 }

@@ -10,6 +10,6 @@ import java.time.Duration;
 
 public class Waiters {
     public WebElement waiterFor(WebDriver driver, String xpath) {
-        return new WebDriverWait(driver, 10).pollingEvery(Duration.ofSeconds(500)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+        return new WebDriverWait(driver, 20).pollingEvery(Duration.ofSeconds(500)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
     }
 }
